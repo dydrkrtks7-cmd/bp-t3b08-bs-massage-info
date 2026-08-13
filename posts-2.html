@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 (2/2) · t3b08-bs-massage-info</title>
+  <meta name="description" content="t3b08-bs-massage-info에 올라온 글 목록입니다.">
+  <link rel="canonical" href="https://balsan-care-info.program-school.online/posts-2.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+/* Swiss Minimal + warm-grid + dense */
+*, *::before, *::after {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+}
+html {
+ scroll-behavior: smooth;
+ -webkit-text-size-adjust: 100%;
+}
+body {
+ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+ background: #faf8f4;
+ color: #1d1d1f;
+ line-height: 1.5;
+ font-weight: 400;
+ padding: 0 0 80px 0;
+}
+.container {
+ max-width: 1200px;
+ margin: 0 auto;
+ padding: 0 24px;
+}
+/* HEADER / NAV */
+header {
+ background: #faf8f4;
+ border-bottom: 2px solid #e5ddd6;
+ padding: 16px 0;
+ position: sticky;
+ top: 0;
+ z-index: 50;
+}
+.header-inner {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+.logo {
+ font-weight: 700;
+ font-size: 1.5rem;
+ letter-spacing: -0.02em;
+ text-transform: uppercase;
+ color: #1d1d1f;
+}
+.logo span {
+ background: #d9c9b3;
+ padding: 0 8px;
+ color: #1d1d1f;
+}
+nav.desktop-nav {
+ display: flex;
+ gap: 32px;
+}
+nav.desktop-nav a {
+ text-decoration: none;
+ color: #1d1d1f;
+ font-weight: 500;
+ font-size: 1rem;
+ border-bottom: 2px solid transparent;
+ padding-bottom: 4px;
+ transition: border 0.15s;
+}
+nav.desktop-nav a:hover {
+ border-bottom-color: #b8a38b;
+}
+.hamburger {
+ display: none;
+ flex-direction: column;
+ gap: 5px;
+ background: none;
+ border: none;
+ cursor: pointer;
+ padding: 4px 0;
+}
+.hamburger span {
+ width: 28px;
+ height: 3px;
+ background: #1d1d1f;
+ border-radius: 2px;
+ transition: 0.2s;
+}
+.tel-link {
+ font-weight: 600;
+ color: #1d1d1f;
+ text-decoration: none;
+ border: 2px solid #1d1d1f;
+ padding: 6px 16px;
+ border-radius: 40px;
+ font-size: 0.95rem;
+ transition: background 0.2s, color 0.2s;
+ white-space: nowrap;
+}
+.tel-link:hover {
+ background: #1d1d1f;
+ color: #faf8f4;
+}
+/* responsive 768 */
+@media (max-width: 768px) {
+ nav.desktop-nav {
+ display: none;
+ }
+ .hamburger {
+ display: flex;
+ }
+ .header-inner {
+ flex-wrap: wrap;
+ }
+ .tel-link {
+ margin-left: auto;
+ order: 1;
+ }
+ .hamburger {
+ order: 2;
+ margin-left: 16px;
+ }
+}
+/* hero section */
+.hero {
+ padding: 60px 0 40px;
+ border-bottom: 2px solid #e5ddd6;
+}
+.hero h1 {
+ font-size: 2.8rem;
+ font-weight: 700;
+ letter-spacing: -0.03em;
+ line-height: 1.1;
+ max-width: 800px;
+ color: #1d1d1f;
+}
+.hero p {
+ font-size: 1.2rem;
+ color: #4a4a4a;
+ margin-top: 20px;
+ max-width: 700px;
+ font-weight: 350;
+}
+/* cards grid */
+.grid-3 {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+ gap: 32px;
+ margin: 48px 0;
+}
+.card {
+ background: white;
+ border: 2px solid #e5ddd6;
+ padding: 28px 24px;
+ box-shadow: 8px 8px 0 #e5ddd6;
+ transition: transform 0.1s ease;
+}
+.card:hover {
+ transform: translate(-2px, -2px);
+}
+.card h3 {
+ font-size: 1.6rem;
+ font-weight: 600;
+ letter-spacing: -0.02em;
+ border-bottom: 2px solid #d9c9b3;
+ padding-bottom: 10px;
+ margin-bottom: 16px;
+}
+.card .price {
+ font-size: 1.4rem;
+ font-weight: 700;
+ margin: 10px 0 6px;
+}
+.card .meta {
+ color: #5e5e5e;
+ font-size: 0.9rem;
+ margin-bottom: 8px;
+}
+.card .desc {
+ color: #2c2c2c;
+ line-height: 1.5;
+}
+.badge {
+ display: inline-block;
+ background: #d9c9b3;
+ padding: 2px 12px;
+ font-weight: 600;
+ font-size: 0.75rem;
+ text-transform: uppercase;
+ letter-spacing: 0.04em;
+ margin-right: 6px;
+}
+/* info section */
+.info-block {
+ background: #f4efe9;
+ border: 2px solid #d9c9b3;
+ padding: 40px 32px;
+ margin: 48px 0;
+}
+.info-block h2 {
+ font-size: 2rem;
+ font-weight: 650;
+ letter-spacing: -0.02em;
+ margin-bottom: 20px;
+}
+.info-block p {
+ max-width: 800px;
+ color: #2e2e2e;
+ margin-bottom: 16px;
+}
+.faq-item {
+ border-top: 2px solid #d9c9b3;
+ padding: 20px 0;
+}
+.faq-item strong {
+ display: block;
+ font-size: 1.2rem;
+ margin-bottom: 6px;
+}
+.cta-line {
+ font-size: 1.3rem;
+ font-weight: 600;
+ margin: 40px 0 16px;
+ padding: 16px 0;
+ border-top: 2px solid #1d1d1f;
+ border-bottom: 2px solid #1d1d1f;
+}
+.tel-big {
+ font-size: 1.8rem;
+ font-weight: 700;
+ color: #1d1d1f;
+ text-decoration: none;
+ border-bottom: 3px solid #d9c9b3;
+}
+.tel-big:hover {
+ border-bottom-color: #1d1d1f;
+}
+footer {
+ margin-top: 48px;
+ border-top: 2px solid #e5ddd6;
+ padding: 24px 0;
+ text-align: center;
+ color: #5e5e5e;
+ font-size: 0.85rem;
+}
+</style>
+  <meta property="og:title" content="글 목록 (2/2) · t3b08-bs-massage-info">
+  <meta property="og:description" content="t3b08-bs-massage-info에 올라온 글 목록입니다.">
+  <meta property="og:url" content="https://balsan-care-info.program-school.online/posts-2.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="container">
+    <header>
+<div class="container header-inner">
+<div class="logo"><span>발산</span> 마사지</div>
+<nav class="desktop-nav">
+<a href="#">정보</a>
+<a href="#">샵</a>
+<a href="#">가격</a>
+<a href="#">후기</a>
+<a href="#">예약</a>
+</nav>
+<button class="hamburger" aria-label="메뉴 열기">
+
+</button>
+
+</div>
+</header>
+    <main>
+      <h1>글 목록</h1>
+      <p>전체 40개 · 2/2 페이지</p>
+      <ul class="post-list">
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0427.html">발산 마사지 정보 습득과 연계된 구글 인덱싱 속도 초고속 광회선 대역폭 최적화 기술</a>
+        <p class="post-item__summary">발산 마사지 정보를 최신 상태로 유지하는 블로그 운영자라면 검색 엔진의 인덱싱 속도에 민감할 수밖에 없습니다. 인덱싱을 가속화하기 위해서는 안정적인 대역폭 확보와 서버의 응답 속도가 충족되어야 합니</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0428.html">발산 마사지 정보 이용객을 위한 구글 신뢰 지수 모발이식 솔루션 활용 도메인 파워 증폭</a>
+        <p class="post-item__summary">발산 마사지 정보를 검색하는 독자들은 본인의 건강과 외관 관리에 큰 관심을 가지고 있습니다. 여러분은 현재 운영 중인 디지털 플랫폼이 검색 엔진으로부터 충분한 신뢰를 받고 있다고 자신하십니까? 도메</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0199.html">발산 마사지 정보 확인하고 연남 유흥 추천정보 예약 시 실패 예방</a>
+        <p class="post-item__summary">발산 마사지 정보가 건강 관리의 시작이라면, 연남 지역에서 즐길 거리를 찾는 것은 또 다른 영역의 기호입니다. 많은 사람들이 유흥 서비스를 예약할 때 실패하는 지점은 정보의 불균형에서 시작됩니다. </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0200.html">발산 마사지 정보 찾듯 마곡 가라오케 추천정보 확인할 때의 체크리스트</a>
+        <p class="post-item__summary">발산 마사지 정보처럼 지역 기반의 서비스는 직접 방문 전 확인해야 할 항목이 많습니다. 특히 마곡 지역의 가라오케를 선택할 때는 시설의 접근성과 위치를 최우선 순위에 두어야 합니다. 대중교통 이용이</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0201.html">발산 마사지 정보 확인 후 방문하는 마곡 유흥 추천정보 가이드</a>
+        <p class="post-item__summary">업무를 마치고 피로를 풀기 위해 계획했던 일정이 예상치 못한 방향으로 흐르는 경우가 종종 있습니다. 평소 발산 마사지 정보 등을 통해 휴식을 취하려던 분들이 마곡 지역의 새로운 엔터테인먼트 환경을 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0202.html">발산 마사지 정보 찾아 헤매다 발견한 합정 노래방 추천정보 팁</a>
+        <p class="post-item__summary">노래방은 무조건 밤늦게 가야 즐겁다는 생각은 큰 오해입니다. 발산 마사지 정보 검색을 통해 휴식처를 찾던 분들이 의외로 합정 지역에서 낮 시간대를 활용해 여유로운 음악 공간을 즐기는 경우가 많습니다</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0203.html">발산 마사지 정보 알아보다 정착한 연남 클럽 추천정보 확인</a>
+        <p class="post-item__summary">클럽을 선택할 때는 음악의 장르, 분위기, 그리고 접근성이라는 삼박자가 고루 갖춰져야 합니다. 발산 마사지 정보 중심의 검색을 하던 분들도 연남동의 자유로운 감성에 매료되면 클럽 문화를 재평가하게 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0204.html">발산 마사지 정보 살피고 결정하는 합정 셔츠룸 추천정보 선택</a>
+        <p class="post-item__summary">여러분은 셔츠룸이라는 독특한 시스템을 접할 때 어떤 기준을 가지고 업체를 비교하시나요. 발산 마사지 정보처럼 정적인 휴식을 찾던 분들에게는 낯설 수 있는 분야이기에 더욱 신중한 접근이 필요합니다. </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0205.html">발산 마사지 정보 확인 후 살펴보는 공덕 가라오케 추천정보 활용법</a>
+        <p class="post-item__summary">발산 마사지 정보를 찾던 분들이 인근 지역의 유흥 문화를 탐색할 때 가장 먼저 고려해야 할 점은 정보의 객관성입니다. 무분별한 광고성 글을 배제하고 실질적인 매장을 찾기 위해서는 체계적인 탐색 절차</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0206.html">발산 마사지 정보 비교와 상수 마사지 추천정보 가격 산정 기준</a>
+        <p class="post-item__summary">발산 마사지 정보에 관심을 두었던 분들이라면 상수 지역으로 이동했을 때 어떤 기준으로 매장을 선택해야 할지 고민이 생길 것입니다. 크게 개인형 소규모 샵과 호텔급 대형 스파라는 두 가지 선택지가 존</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0207.html">발산 마사지 정보 탐색자가 흔히 겪는 망원 노래방 추천정보 실패 사례</a>
+        <p class="post-item__summary">발산 마사지 정보 등을 찾아본 경험이 있는 분들은 온라인상에 흩어진 홍보 글에 익숙할 것입니다. 하지만 망원 지역의 노래방을 찾을 때 너무 쉽게 정보만 믿고 예약했다가 낭패를 보는 경우가 종종 있습</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0208.html">발산 마사지 정보 활용자가 숙지해야 할 홍대 노래방 추천정보 체크리스트</a>
+        <p class="post-item__summary">발산 마사지 정보 탐색에 익숙한 분들이 홍대 상권으로 이동할 때 가장 먼저 체크해야 할 것은 매장의 구체적인 위치와 대중교통 접근성입니다. 홍대는 상권이 매우 복잡하여 지도 앱만으로는 실제 입구를 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0209.html">발산 마사지 정보 확인하고 떠나는 공덕 셔츠룸 추천정보 탐방기</a>
+        <p class="post-item__summary">퇴근길 지친 몸을 이끌고 우연히 발산 마사지 정보 검색을 하다가 저녁 시간을 알차게 보낼 장소를 고민하는 분들이 많습니다. 평소 건전한 휴식을 즐기다가도 가끔은 특별한 분위기의 공간에서 스트레스를 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/guide-001-1e4ghe0.html">발산 마사지 정보처럼 섬세하게 다듬은 유니콘 조명 스토리, 알리익스프레스까지?</a>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/juice-1.html">발산 마사지 정보 안내</a>
+        <p class="post-item__summary">발산 지역은 다양한 마사지 업소가 밀집되어 있어 이용자가 많은 편입니다. 많은 사람이 휴식과 피로 회복을 위해 이곳을 찾으며, 그에 따라 다양한 종류의 마사지와 서비스 정보가 필요합니다. 그러나 정</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/juice-2.html">발산 마사지 정보 및 유흥 이용 주의사항</a>
+        <p class="post-item__summary">마사지를 찾는 분들이라면 발산 지역의 다양한 시설 정보를 파악하는 것이 중요합니다. 각 업소는 서로 다른 서비스와 분위기를 제공하므로, 사전에 정보를 철저히 검토하여 자신에게 적합한 곳을 선택하는 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-1.html">발산 마사지 정보 안내</a>
+        <p class="post-item__summary">발산 지역의 마사지 정보는 많은 분이 궁금해하는 주제 중 하나입니다. 이 안내에서는 발산 지역과 관련된 마사지 정보의 특성과 접근 방법을 설명합니다. 정확한 정보를 얻기 위해서는 신뢰할 수 있는 출</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-2.html">발산 마사지 정보</a>
+        <p class="post-item__summary">발산 지역에서 마사지를 고려 중이라면, 적절한 정보를 사전에 숙지하는 것이 중요합니다. 다양한 마사지 종류와 각각의 특성을 이해하면 본인이 원하는 휴식이나 근육 이완 목적에 맞는 치료를 선택하는 데</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-3.html">발산 마사지 정보 안내</a>
+        <p class="post-item__summary">발산 지역에는 다양한 마사지 업소가 위치해 있으며, 방문 전 충분한 정보가 필요합니다. 마사지란 신체의 근육 이완과 피로 회복을 목적으로 하는 서비스로, 건강 관리를 위해 많은 이가 찾는 분야입니다</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/qa-002-r9e78e.html">발산 마사지 정보, 체감되는 진동의 숨겨진 패턴을 파헤치다</a>
+        <p class="post-item__summary">hero, massage, therapy, anatomy, muscle-tissue, kinesiology, relief, technique, sensation, treatment, professi</p>
+      </li>
+      </ul>
+    <nav class="pager">
+      <a class="pager__link" href="posts.html">1</a>
+      <span class="pager__current">2</span>
+    </nav>
+    </main>
+  </div>
+</body>
+</html>
